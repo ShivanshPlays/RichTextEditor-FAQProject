@@ -23,6 +23,7 @@
     "react-hot-toast": "^2.5.1",
     "react-quill": "^2.0.0",
     "react-router-dom": "^7.1.5",
+    "serve": "^14.2.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
