@@ -7,11 +7,13 @@ import faqRoutes from "./routes/faqRoutes";
 dotenv.config();
 const app = express();
 
-app.use(cors(
-	     { origin: 'http://texteditor.shivanshsaxena.tech', // Replace with your frontend URL
-  	    	methods: ['GET', 'POST'],  // Allow specific methods
-  		allowedHeaders: ['Content-Type', 'Authorization'], }// Allow specific headers
-	    ));
+app.use(
+  cors({
+    origin: process.env.Frontend_URL,
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 

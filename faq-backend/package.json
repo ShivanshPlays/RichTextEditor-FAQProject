@@ -10,13 +10,17 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google-cloud/translate": "^8.5.0",
     "@vitalets/google-translate-api": "^9.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "google-translate-api": "^2.3.0",
+    "google-translate-api-x": "^10.7.2",
+    "http-proxy-agent": "^7.0.2",
     "mongoose": "^8.9.6",
-    "redis": "^4.7.0"
+    "redis": "^4.7.0",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

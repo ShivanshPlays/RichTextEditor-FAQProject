@@ -1,0 +1,22 @@
+FROM node:22
+
+WORKDIR /app
+
+
+COPY package*.json ./
+RUN npm install
+
+
+COPY . .
+
+
+RUN npx tsc
+
+
+RUN apt-get update && apt-get install -y redis-server
+
+
+EXPOSE 3000 6379
+
+
+CMD redis-server --daemonize no & node dist/index.js

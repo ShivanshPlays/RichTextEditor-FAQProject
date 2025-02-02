@@ -1,0 +1,16 @@
+{
+    "languages": {
+        "English": "en",
+        "Bengali": "bn",
+        "Hindi": "hi",
+        "Kannada": "kn",
+        "Malayalam": "ml"
+    },
+    "acronyms": [
+        "bn",
+        "hi",
+        "kn",
+        "ml",
+        "en"
+    ]
+}
