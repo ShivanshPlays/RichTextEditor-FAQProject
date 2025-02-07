@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "c28e83c1-a70d-44fb-9904-76c989f81175",
+		"name": "BharatFD API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29757698"
+	},
+	"item": [
+		{
+			"name": "Fetch All FAQs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body has the required fields defined in the schema\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData).to.have.lengthOf.at.least(1);\r",
+							"    responseData.forEach(function(faq) {\r",
+							"        pm.expect(faq).to.have.property('question').that.is.a('string');\r",
+							"        pm.expect(faq).to.have.property('answer').that.is.a('string');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Prod_Base_URL}}/api/faqs",
+					"host": [
+						"{{Prod_Base_URL}}"
+					],
+					"path": [
+						"api",
+						"faqs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All FAQs with lang query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body has the required fields defined in the schema\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData).to.have.lengthOf.at.least(1);\r",
+							"    responseData.forEach(function(faq) {\r",
+							"        pm.expect(faq).to.have.property('question').that.is.a('string');\r",
+							"        pm.expect(faq).to.have.property('answer').that.is.a('string');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Prod_Base_URL}}/api/faqs?lang=bn",
+					"host": [
+						"{{Prod_Base_URL}}"
+					],
+					"path": [
+						"api",
+						"faqs"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "bn"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create FAQ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response has the correct schema\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"question\": { \"type\": \"string\" },\r",
+							"            \"answer\": { \"type\": \"string\" },\r",
+							"            \"translations\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"bn\": { \"type\": \"string\" },\r",
+							"                    \"hi\": { \"type\": \"string\" },\r",
+							"                    \"kn\": { \"type\": \"string\" },\r",
+							"                    \"ml\": { \"type\": \"string\" },\r",
+							"                    \"en\": { \"type\": \"string\" }\r",
+							"                },\r",
+							"                \"required\": [\"bn\", \"hi\", \"kn\", \"ml\", \"en\"]\r",
+							"            },\r",
+							"        },\r",
+							"        \"required\": [\"question\", \"answer\", \"translations\", \"_id\", \"id\", \"__v\"]\r",
+							"    });\r",
+							"});\r",
+							"// save the \"id\" value from the response to a variable named \"id\"\r",
+							"const id = pm.response.json().id\r",
+							"// save the id as a collection variable named \"id\"\r",
+							"pm.collectionVariables.set(\"id\", id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\":\"new question\",\r\n    \"answer\":\"new answer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Prod_Base_URL}}/api/faqs",
+					"host": [
+						"{{Prod_Base_URL}}"
+					],
+					"path": [
+						"api",
+						"faqs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit FAQ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response has the correct schema\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"string\" },\r",
+							"            question: { type: \"string\" },\r",
+							"            answer: { type: \"string\" }\r",
+							"        },\r",
+							"        required: [\"id\", \"question\", \"answer\"]\r",
+							"    });\r",
+							"});\r",
+							"pm.test(\"Response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\":\"new questionedit\",\r\n    \"answer\":\"new answeredit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Prod_Base_URL}}/api/faqs/?id={{id}}",
+					"host": [
+						"{{Prod_Base_URL}}"
+					],
+					"path": [
+						"api",
+						"faqs",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete FAQ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains 'Successfully Deleted' message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successfully Deleted\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\":\"new questionedit\",\r\n    \"answer\":\"new answeredit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Prod_Base_URL}}/api/faqs?id={{id}}",
+					"host": [
+						"{{Prod_Base_URL}}"
+					],
+					"path": [
+						"api",
+						"faqs"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Local_Base_URL",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "Prod_Base_URL",
+			"value": "https://texteditorbe.shivanshsaxena.tech",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": ""
+		}
+	]
+}
