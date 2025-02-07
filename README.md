@@ -16,7 +16,8 @@
 
 ## Live Link to try out:
 
-  https://faq-bharatfdproject.shivanshsaxena.tech/
+  Frontend: https://faq-bharatfdproject.shivanshsaxena.tech/
+  Backend: https://texteditorbe.shivanshsaxena.tech/api/faqs
   
 ## 🚀 Quick Start
 
