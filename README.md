@@ -113,10 +113,12 @@ Change directory to faq-backend
 
 ![Image](https://github.com/user-attachments/assets/5382a46c-6054-4fb8-8420-b76edf9a080c)
 
-Services used:
--hostinger
--aws EC2
--vercel
+## Services used:
+# Hostinger
+# AWS EC2
+# Vercel
+# Nginx
+
 
 ## 📄 Assumptions
 
