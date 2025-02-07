@@ -98,9 +98,39 @@ _Ensure Redis is installed and running locally before proceeding._
 ## 📌 Testing API with Postman
 
 <div style="display: flex; align-items: center;">
-  <h2>Postman API Testing</h2>
-</div>
 
-You can use **Postman** to test the API endpoints. Import the API collection and start testing.
+  https://github.com/user-attachments/assets/327f56c5-9731-46bd-855a-d92e7906be4b
+
+# Running Postman Tests Using JSON File
+
+## Steps to Run Postman Tests
+
+<details>
+  <summary>Click to expand step-by-step instructions</summary>
+
+### Step 1: Install Postman (If Not Already Installed)
+- Download and install Postman from [Postman’s official website](https://www.postman.com/downloads/).
+
+### Step 2: Import the JSON Collection
+1. Open Postman.
+2. Click on **File** → **Import**.
+3. Select the provided JSON file [Link to JSON file](https://github.com/ShivanshPlays/RichTextEditor-FAQProject/blob/main/faq-backend/BharatFD%20API%20Testing.postman_collection.json).
+4. Click **Open** to import the collection.
+
+### Step 3: Set Up Environment Variables
+- Click on the **Environments** tab in Postman.
+- Create a new environment and add the required variables:
+  - `Prod_Base_URL`: Set this to the base URL of the API (https://texteditorbe.shivanshsaxena.tech).
+
+### Step 4: Run the Tests
+1. Navigate to the **Collection Runner** in Postman.
+2. Select the imported collection (**BharatFD API Testing**).
+3. Click **Run Collection**.
+
+### Step 5: Check Test Results
+- The results will display the status of each test (Pass/Fail).
+- You can click on individual requests to see response details.
+
+</details>
 
 ---
