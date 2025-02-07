@@ -31,11 +31,14 @@ export const getFaqs = async (req: Request, res: Response): Promise<any> => {
     console.log("GET_CACHE_NO_HIT");
 
     const faqs = await Faq.find();
-    const translatedFaqs = faqs.map((faq) => ({
+    
+    const translatedFaqs = faqs.map((faq) => {
+      return{
       id: faq.id,
-      question: faq.translations?.[lang] || faq.question,
+      question: faq.getTranslatedText(lang) ,
       answer: faq.answer,
-    }));
+      }
+    });
 
     await redisClient.set(cacheKey, JSON.stringify(translatedFaqs), {
       EX: 3600,
