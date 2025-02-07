@@ -141,7 +141,9 @@ export const deleteFaq = async (req: Request, res: Response): Promise<any> => {
       await updateFaqCache(lang);
     }
 
-    res.status(204).send();
+    res.status(200).json({
+      "message":"Successfully Deleted"
+    });
   } catch (error) {
     return res.status(500).json({ error: (error as Error).message });
   }
