@@ -11,7 +11,8 @@
 - **MongoDB** : NoSQL database
 - **Redis** : In-memory data structure store for caching
 - **Google-Translate API-X** : Translation service
-- **React + Vite** : Frontend 
+- **React + Vite** : Frontend
+- **Postman** : Testing
 
 ## 🌍 Live Links
 
