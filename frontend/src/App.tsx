@@ -7,7 +7,7 @@ import Layout from "./components/layout";
 
 function App() {
   return (
-    <>
+    <div className="overflow-hidden">
       <Router>
       <Navbar />
         <Layout>
@@ -17,7 +17,7 @@ function App() {
         </Routes>
         </Layout>
       </Router>
-    </>
+    </div>
   );
 }
 

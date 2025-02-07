@@ -27,46 +27,47 @@ const components: { title: string; href: string; description: string }[] = [
 
 const technologies = [
   {
-    name: "React (Vite)",
+    name: "MERN Stack",
     description:
-      "A fast frontend framework for building user interfaces with modern JavaScript and TypeScript support.",
+      "Built scalable and efficient full-stack web applications using MongoDB, Express.js, React (Vite), and Node.js.",
   },
   {
     name: "TypeScript",
     description:
-      "A statically typed superset of JavaScript that enhances code quality and maintainability.",
+      "Enhanced code quality and maintainability with static typing and improved tooling support.",
   },
   {
-    name: "MongoDB",
+    name: "Postman",
     description:
-      "A NoSQL database that provides high scalability and flexibility for storing JSON-like documents.",
+      "Utilized for testing, developing, and debugging RESTful APIs efficiently.",
   },
   {
-    name: "Node.js",
+    name: "Google Translate API-X",
     description:
-      "A runtime environment for executing JavaScript on the server side, enabling full-stack development.",
+      "Integrated for real-time language translation in multilingual applications.",
   },
   {
-    name: "Express.js",
+    name: "Docker",
     description:
-      "A minimalist and flexible Node.js framework for building APIs and web applications.",
+      "Containerized backend applications to ensure consistency across different environments.",
   },
   {
     name: "Nginx",
     description:
-      "A high-performance web server and reverse proxy for handling HTTP requests and improving application scalability.",
+      "Configured as a high-performance web server and reverse proxy to handle HTTP requests and improve scalability.",
   },
   {
     name: "Redis",
     description:
-      "An in-memory data store used for caching and real-time data processing to enhance performance.",
+      "Implemented for caching and real-time data processing to enhance application performance.",
   },
   {
     name: "AWS EC2",
     description:
-      "A cloud computing service that provides scalable virtual servers for deploying applications.",
+      "Deployed applications on scalable cloud infrastructure to ensure high availability and performance.",
   },
 ];
+
 
 export function Navbar() {
   return (
