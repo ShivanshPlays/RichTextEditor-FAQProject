@@ -46,7 +46,7 @@ export default function FaqList() {
 
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 h-full">
       <div className="flex space-x-4">
         <Input
           placeholder="Search FAQs"
@@ -67,9 +67,9 @@ export default function FaqList() {
           </SelectContent>
         </Select>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4 h-1/4 p-4 shadow-inner overflow-y-auto">
         {filteredFaqs.map((faq) => (
-          <Card key={faq.id}>
+          <Card key={faq.id} className="bg-gray-200">
             <CardHeader>
               <CardTitle>{faq.question}</CardTitle>
             </CardHeader>
