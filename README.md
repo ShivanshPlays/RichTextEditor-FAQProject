@@ -1,36 +1,23 @@
 <div style="display: flex; align-items: center;">
   <img src="./frontend/public/bhrathfd_logo.png" alt="Logo" width="40" height="40">
-  <h1 style="margin-left: 10px;">BhrathFd Backend Assignment</h1>
+  <h1 style="margin-left: 10px;">BhrathFd FullStack Assignment</h1>
 </div>
-
-## Credentials 
-
-### Admin
-Username: admin
-Password: falgun
-
-### User
-Username: user
-Password: falgun
 
 ## 🛠️ Tech Stack
 
 - **TypeScript** : Typed superset of JavaScript
 - **Node.js** : JavaScript runtime
 - **Express** : Web framework for Node.js (Backend)
-- **SuperBase** : Postgres database
-- **Prisma** : ORM for database management
+- **MongoDB** : NoSQL database
 - **Redis** : In-memory data structure store for caching
 - **Google-Translate API-X** : Translation service
-- **React + Vite** : Frontend
-- **ContextAPI**: For Context Management
-- **Express Validator**: For Input Validation
+- **React + Vite** : Frontend 
 
 
-## 🎬 Demo Video
+## Live Link to try out:
 
-https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289-16780718-f4a9-4e3c-aad7-b8a41d71155b.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250204T081010Z&X-Amz-Expires=300&X-Amz-Signature=9129a5d282b0b71a01804263bf8cb9b639730da73ef4138cd9d2c95ee033a16c&X-Amz-SignedHeaders=host
-
+  https://faq-bharatfdproject.shivanshsaxena.tech/
+  
 ## 🚀 Quick Start
 
 ### FrontEnd Setup
@@ -38,8 +25,8 @@ https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/falgun143/BhrathFd_FAQ.git
-   cd BhrathFd_FAQ
+   git clone https://github.com/ShivanshPlays/RichTextEditor-FAQProject
+   cd RichTextEditor-FAQProject
    ```
 
 2. **Go to frontend dir:**
@@ -62,6 +49,8 @@ https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289
 
 ### Backend Setup
 
+Change directory to faq-backend
+
 ##### 1st Way. 🐳 Docker Setup for backend
 
 1. **Build the Docker image:**
@@ -73,10 +62,11 @@ https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289
 2. **Run the Docker container:**
 
    ```bash
-   docker run -p 8000:8000 bhrathfd
+   docker run -p 3000:3000 bhrathfd
    ```
+   Redis Instance will run and connect to backend within the docker container.
 
-##### 2nd Way. 🛠️ Normal Setup for backend (Might Give redis TCP connection error)
+##### 2nd Way. 🛠️ Normal Setup for backend (Manually install redis locally and start the server, otherwise it will give error)
 
 1. **Go to backend dir:**
 
@@ -93,13 +83,13 @@ https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289
 3. **Compile the ts files to js:**
 
    ```bash
-   tsc
+   npx tsc
    ```
 
 4. **Run the server:**
 
    ```bash
-   npm run dev
+   node dist/index.js
    ```
 
 <div style="display: flex; align-items: center;">
@@ -112,19 +102,22 @@ https://github-production-user-asset-6210df.s3.amazonaws.com/105922142/409458289
   </svg>
 </div>
 
-- Register API: `POST http://localhost:8000/api/register`
-- Login API: `POST http://localhost:8000/api/login`
 - Get FAQs API: `GET http://localhost:8000/api/faqs?lang={lang}`
 - Create FAQ API: `POST http://localhost:8000/api/faqs`
-- Update FAQ API: `PUT http://localhost:8000/api/faqs/{id}`
-- Delete FAQ API: `DELETE http://localhost:8000/api/faqs/{id}`
+- Update FAQ API: `PUT http://localhost:8000/api/faqs/?id={id}`
+- Delete FAQ API: `DELETE http://localhost:8000/api/faqs/?id={id}`
+
+## DevOps
+
+-The Whole project is deployed and the architechture is as follows:
+
+![Image](https://github.com/user-attachments/assets/5382a46c-6054-4fb8-8420-b76edf9a080c)
+
+Services used:
+-hostinger
+-aws EC2
+-vercel
 
 ## 📄 Assumptions
 
-- The database schema is predefined and migrations are managed using Prisma. Used google-translate-api-x instead google translate api as it was easy to use.
-
-## 🙏 Acknowledgments
-
-- Prisma team for the ORM.
-- Express team for the web framework.
-- Google Translate API team for the translation service.
+- Used google-translate-api-x instead google translate api as it requires paid google cloud project link (one which I do not have at the time). Also the other translate API I used was rate limiting very quickly, so I had to change to one which had batch operations.
