@@ -101,12 +101,8 @@ _Ensure Redis is installed and running locally before proceeding._
 
   https://github.com/user-attachments/assets/327f56c5-9731-46bd-855a-d92e7906be4b
 
-# Running Postman Tests Using JSON File
-
-## Steps to Run Postman Tests
-
 <details>
-  <summary>Click to expand step-by-step instructions</summary>
+  <summary>Running Postman Tests Using JSON File</summary>
 
 ### Step 1: Install Postman (If Not Already Installed)
 - Download and install Postman from [Postman’s official website](https://www.postman.com/downloads/).
